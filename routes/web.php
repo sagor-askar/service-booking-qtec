@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\Admin\ServiceController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,9 +21,15 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 // dashboard
 Route::middleware(['auth', 'role:admin'])->group(function() {
+    // dashboard
     Route::get('admin/dashboard', function() {
         return view('dashboard.admin');
     })->name('admin.dashboard');
+
+    // service
+    Route::resource('services', ServiceController::class);
+
+    
 });
 
 Route::middleware(['auth', 'role:customer'])->group(function() {
