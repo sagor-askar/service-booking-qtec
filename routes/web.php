@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\BookingController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -36,4 +37,6 @@ Route::middleware(['auth', 'role:customer'])->group(function() {
     Route::get('customer/dashboard', function() {
         return view('dashboard.customer');
     })->name('customer.dashboard');
+
+    Route::resource('bookings', BookingController::class);
 });

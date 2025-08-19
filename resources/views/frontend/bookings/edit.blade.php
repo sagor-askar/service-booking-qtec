@@ -8,8 +8,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -46,30 +44,34 @@
     </div>
   </nav>
 
-  <!-- Main Content -->
- <div class="container my-5">
-    <div class="row">
+<!-- Main Content -->
+<div class="container">
+    <h2>Edit Booking</h2>
 
-      <!-- Card 2 -->
-      <div class="col-md-6 mb-4">
-        <div class="card shadow-sm h-100">
-          <div class="card-body">
-            <h5 class="card-title">My Bookings</h5>
-            <p class="card-text">Find all your bookings here. </p>
-            <a href="{{ route('bookings.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> Add</a>
-            <a href="{{ route('bookings.index') }}" class="btn btn-success"><i class="fa fa-list"></i> View All</a>
-          </div>
+    <form action="{{ route('bookings.update', $booking->id) }}" method="POST">
+        @csrf
+        @method('PUT')
+
+        <div class="mb-3">
+            <label>Service</label>
+            <select name="service_id" class="form-control" required>
+                @foreach($services as $service)
+                    <option value="{{ $service->id }}" {{ $booking->service_id == $service->id ? 'selected' : '' }}>
+                        {{ $service->name }} - ${{ $service->price }}
+                    </option>
+                @endforeach
+            </select>
         </div>
-      </div>
 
-    </div>
-  </div>
+        <div class="mb-3">
+            <label>Booking Date</label>
+            <input type="date" name="booking_date" class="form-control" value="{{ $booking->booking_date }}" required>
+        </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <button type="submit" class="btn btn-success">Update Booking</button>
+    </form>
+</div>
 
 
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
