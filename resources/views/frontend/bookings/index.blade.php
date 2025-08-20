@@ -7,7 +7,8 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" 
+  rel="stylesheet">
 </head>
 <body>
 
@@ -22,23 +23,19 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <!-- User Dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
-              <i class="bi bi-person-circle me-1"></i> {{ Auth::user()->name}}
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-              <li><hr class="dropdown-divider"></li>
-              <li>
-                <!-- Logout Form -->
+          <div class="row">
+            <div class="col-md-6">
+              <a href="" class="btn btn-sm btn-success">
                 <form action="{{ route('logout') }}" method="POST" class="d-inline">
                   @csrf
                   <button type="submit" class="dropdown-item d-flex align-items-center">
                     <i class="bi bi-box-arrow-right me-2"></i> Log Out
                   </button>
                 </form>
-              </li>
-            </ul>
-          </li>
+              </a>
+            </div>
+          </div>
+   
         </ul>
       </div>
     </div>
@@ -46,7 +43,10 @@
 
     <!-- Main Content -->
     <div class="container my-5">
-    <h2 class="mb-4 text-center">My Bookings</h2>
+    <h3 class="mb-4">
+       Booking List
+    </h3>
+
 
     <div class="card shadow-lg">
         <div class="card-body">

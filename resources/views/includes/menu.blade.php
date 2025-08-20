@@ -22,13 +22,8 @@
           </li>
         
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Spinners</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Tooltips</span>
+            <a href="{{ route('bookingslist.index') }}">
+              <i class="bi bi-circle"></i><span>Booking List</span>
             </a>
           </li>
         </ul>

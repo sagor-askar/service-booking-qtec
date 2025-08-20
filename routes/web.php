@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\BookingListController;
 use App\Http\Controllers\BookingController;
 
 Route::get('/', function () {
@@ -27,9 +28,11 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         return view('dashboard.admin');
     })->name('admin.dashboard');
 
-    // service
+    // Service
     Route::resource('services', ServiceController::class);
 
+    // Booking List
+    Route::resource('bookingslist', BookingListController::class);
     
 });
 
@@ -38,5 +41,6 @@ Route::middleware(['auth', 'role:customer'])->group(function() {
         return view('dashboard.customer');
     })->name('customer.dashboard');
 
+    // Booking
     Route::resource('bookings', BookingController::class);
 });
