@@ -61,7 +61,9 @@ Update your .env file with database credentials:
    php artisan serve
 ---
 ## 🔑 Authentication with Sanctum
+
 **Login to generate a token:**
+
 ```bash
 POST /api/login
 Content-Type: application/json
@@ -71,18 +73,16 @@ Content-Type: application/json
   "password": "123456789"
 }
 
----
 
-**Response**
+Response
 
 ```bash
 {
   "token": "1|abcdefg123456..."
 }
 
----
+📡 API Endpoints
 
-## 📡 API Endpoints
 👨‍💼 Admin APIs
 
 - POST /api/services → Create a new service
