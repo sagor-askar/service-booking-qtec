@@ -71,12 +71,16 @@ Content-Type: application/json
   "password": "123456789"
 }
 
+---
+
 **Response**
 
 ```bash
 {
   "token": "1|abcdefg123456..."
 }
+
+---
 
 ## 📡 API Endpoints
 👨‍💼 Admin APIs
